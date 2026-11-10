@@ -40,7 +40,7 @@ flowchart LR
 
 ## Why "Earfish"
 
-In Douglas Adams's *The Hitchhiker's Guide to the Galaxy*, you slip a small yellow Babel fish into your ear and suddenly understand whatever anyone says to you, in any language. Earfish is the humbler, real version: one language pair, a second or two behind, and it writes the meeting down for you afterwards. The fish in the logo is the 盐鱼鲜 (Yan Yu Xian) fish from its author's personal brand.
+In Douglas Adams's *The Hitchhiker's Guide to the Galaxy*, you slip a small yellow Babel fish into your ear and suddenly understand whatever anyone says to you, in any language. Earfish is the humbler, real version: one language pair, a second or two behind, and it writes the meeting down for you afterwards. Its sibling [Archerfish](https://github.com/yx-yan/archerfish) speaks for you; this one listens. The fish in the logo is the 盐鱼鲜 (Yan Yu Xian) fish from its author's personal brand.
 
 ## Performance
 
