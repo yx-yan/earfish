@@ -80,15 +80,20 @@ class Interpreter:
         self.audio = Queue()  # Audio blocks, a Transcript to start, or None to finish.
         self.sentences = Queue()
         self.caption = Caption()
-        self.state = State.LOADING
+        self.state = State.READY
         self.message = ""
         self.source = None
         self.started = 0.0
         self.heard = False
 
+    @property
+    def running(self) -> bool:
+        return self.state is not State.READY
+
     def start(self, source: Source) -> None:
+        """Audio is queued while the model loads, so the first words are not lost."""
         self.audio.put(Transcript(datetime.now(), self.folder))
-        self.state = State.LISTENING
+        self.state = State.LOADING
         self.listen(source)
 
     def listen(self, source: Source) -> None:
@@ -114,22 +119,31 @@ class Interpreter:
 
     def check_audio(self) -> None:
         """A microphone without permission delivers nothing and raises no error."""
-        if self.state is not State.LISTENING or self.heard or not self.source.always_on:
+        if not self.running or self.heard or not self.source.always_on:
             return
         if time.monotonic() - self.started > NO_AUDIO_SECONDS:
             self.message = "No audio. Allow the microphone in System Settings."
 
     def recognize(self) -> None:
-        """Worker thread. It owns the model, because MLX stays on the thread that loaded it."""
-        recognizer = self.load_recognizer()
-        self.state = State.READY
+        """Worker thread. It owns the model, because MLX stays on the thread that loaded it.
+
+        The model is loaded when a session starts and freed when it ends, so Earfish holds
+        little memory while it is not listening.
+        """
+        recognizer = None
         transcript = None
         while True:
             item = self.audio.get()
             if isinstance(item, Transcript):
                 transcript = item
+                if recognizer is None:
+                    recognizer = self.load_recognizer()
+                if self.state is State.LOADING:
+                    self.state = State.LISTENING
             elif item is None:
                 self.send(recognizer.flush(), transcript)
+                recognizer.close()
+                recognizer = None
             else:
                 self.send(recognizer.feed(item), transcript)
 

@@ -1,3 +1,5 @@
+import threading
+import time
 from datetime import datetime
 
 import numpy as np
@@ -124,7 +126,7 @@ def test_changing_source_stops_the_old_one(tmp_path):
     interpreter.start(first)
     interpreter.listen(second)
     assert not first.running and second.running
-    assert interpreter.state is State.LISTENING
+    assert interpreter.running
 
 
 def test_stop_asks_the_recognizer_to_finish(tmp_path):
@@ -136,3 +138,40 @@ def test_stop_asks_the_recognizer_to_finish(tmp_path):
     assert interpreter.state is State.READY
     assert isinstance(interpreter.audio.get(), Transcript)
     assert interpreter.audio.get() is None
+
+
+class FakeRecognizer:
+    def __init__(self):
+        self.closed = False
+
+    def feed(self, block):
+        return []
+
+    def flush(self):
+        return []
+
+    def close(self):
+        self.closed = True
+
+
+def wait_for(condition):
+    deadline = time.monotonic() + 2
+    while not condition():
+        assert time.monotonic() < deadline
+        time.sleep(0.01)
+
+
+def test_the_model_loads_on_start_and_is_freed_on_stop(tmp_path):
+    loaded = []
+    interpreter = Interpreter(lambda: loaded.append(FakeRecognizer()) or loaded[-1], FakeTranslator(), tmp_path)
+    threading.Thread(target=interpreter.recognize, daemon=True).start()
+    assert interpreter.state is State.READY and not loaded
+
+    interpreter.start(FakeSource())
+    assert interpreter.state is State.LOADING
+    wait_for(lambda: interpreter.state is State.LISTENING)
+
+    interpreter.stop()
+    wait_for(lambda: loaded[0].closed)
+    interpreter.start(FakeSource())
+    wait_for(lambda: len(loaded) == 2)

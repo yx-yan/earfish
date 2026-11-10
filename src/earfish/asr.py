@@ -84,6 +84,16 @@ class Recognizer:
         self.stream = self.session.feed_audio(block.astype(np.float32) / 32768, self.stream)
         return self.segmenter.take(self.stream.stable_text)
 
+    def close(self) -> None:
+        """Drop the model and hand its memory back to the system."""
+        import gc
+
+        import mlx.core as mx
+
+        self.session = None
+        gc.collect()
+        mx.clear_cache()
+
     def flush(self) -> list[str]:
         """End the stream, which also keeps its text from growing without limit."""
         if self.stream is None:

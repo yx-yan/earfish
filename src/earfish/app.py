@@ -30,7 +30,7 @@ SAMPLE = Line("This is how your subtitles will look.", "字幕会显示成这样
 
 class MenuBar(rumps.App):
     def __init__(self, interpreter: Interpreter, start_now: bool):
-        super().__init__("Earfish", icon=ICONS[State.LOADING], template=True, quit_button=None)
+        super().__init__("Earfish", icon=ICONS[State.READY], template=True, quit_button=None)
         self.interpreter = interpreter
         self.start_now = start_now
         self.overlay = Overlay()
@@ -40,7 +40,7 @@ class MenuBar(rumps.App):
         self.greeted = False
         self.sources = {"Computer Audio": ComputerAudio(), "Microphone": Microphone()}
         self.chosen = "Computer Audio"
-        self.status = rumps.MenuItem(State.LOADING.value)
+        self.status = rumps.MenuItem(State.READY.value)
         self.toggle = rumps.MenuItem("Start", callback=self.on_toggle)
         self.source_items = {
             name: rumps.MenuItem(name, callback=self.on_source) for name in self.sources
@@ -78,10 +78,10 @@ class MenuBar(rumps.App):
             self.on_toggle(None)
         interpreter.check_audio()
         status = interpreter.message or interpreter.state.value
-        toggle = "Stop" if interpreter.state is State.LISTENING else "Start"
+        toggle = "Stop" if interpreter.running else "Start"
         self.status.title = status
         self.toggle.title = toggle
-        self.controls.update(status, toggle, enabled=interpreter.state is not State.LOADING)
+        self.controls.update(status, toggle)
         icon = WARNING_ICON if interpreter.message else ICONS[interpreter.state]
         if icon != self.icon:
             self.icon = icon
@@ -103,10 +103,10 @@ class MenuBar(rumps.App):
 
     def on_toggle(self, _):
         interpreter = self.interpreter
-        if interpreter.state is State.READY:
-            interpreter.start(self.sources[self.chosen])
-        elif interpreter.state is State.LISTENING:
+        if interpreter.running:
             interpreter.stop()
+        else:
+            interpreter.start(self.sources[self.chosen])
 
     def on_source(self, item):
         self.choose(item.title)
@@ -116,7 +116,7 @@ class MenuBar(rumps.App):
         self.source_items[self.chosen].state = 0
         self.chosen = name
         self.source_items[name].state = 1
-        if self.interpreter.state is State.LISTENING:
+        if self.interpreter.running:
             self.interpreter.listen(self.sources[self.chosen])
 
     def quit(self) -> None:

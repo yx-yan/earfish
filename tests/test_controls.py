@@ -34,6 +34,6 @@ def test_choosing_a_source_reports_its_name():
 
 def test_update_shows_the_state():
     controls, _ = make_controls()
-    controls.update("Listening", "Stop", enabled=True)
+    controls.update("Listening", "Stop")
     assert controls.status.stringValue() == "Listening"
     assert controls.toggle.title() == "Stop"
