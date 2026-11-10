@@ -38,6 +38,10 @@ flowchart LR
 - **Subtitles your way.** English above Chinese or Chinese alone, with separate font sizes, width, background, height on screen and how many sentences to show.
 - **The meeting is written down.** Each session is a Markdown file with the time, the English and the Chinese for every sentence, saved as it happens.
 
+## Why "Earfish"
+
+In Douglas Adams's *The Hitchhiker's Guide to the Galaxy*, you slip a small yellow Babel fish into your ear and suddenly understand whatever anyone says to you, in any language. Earfish is the humbler, real version: one language pair, a second or two behind, and it writes the meeting down for you afterwards. The fish in the logo is the 盐鱼鲜 (Yan Yu Xian) fish from its author's personal brand.
+
 ## Performance
 
 Measured on an M5 with 16 GB. Delays use synthesized speech, so the end of each sentence is known exactly. Recognition load and memory use 3 minutes of read-aloud clips from one speaker.
