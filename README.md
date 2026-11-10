@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.svg" width="128" alt="Earfish logo: a voice waveform above two subtitle lines">
+  <img src="assets/logo.svg" width="128" alt="Earfish logo: the Yan Yu Xian fish above two subtitle lines">
 </p>
 
 <h1 align="center">Earfish</h1>
@@ -10,8 +10,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/macOS-Apple%20Silicon-0A2A2E" alt="macOS on Apple Silicon">
-  <img src="https://img.shields.io/badge/Python-3.12-0A2A2E" alt="Python 3.12">
+  <img src="https://img.shields.io/badge/macOS-Apple%20Silicon-14213D" alt="macOS on Apple Silicon">
+  <img src="https://img.shields.io/badge/Python-3.12-14213D" alt="Python 3.12">
   <img src="https://img.shields.io/badge/status-early-FFB020" alt="Status: early">
 </p>
 
