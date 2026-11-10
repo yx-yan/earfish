@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.svg" width="128" alt="Earfish logo: the Yan Yu Xian fish above two subtitle lines">
+  <img src="assets/logo.svg" width="128" alt="Earfish logo: a small yellow fish inside an ear">
 </p>
 
 <h1 align="center">Earfish</h1>
