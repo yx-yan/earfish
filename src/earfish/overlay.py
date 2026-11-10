@@ -29,8 +29,8 @@ from AppKit import (
 )
 from Quartz import CGColorCreateGenericGray
 
-from relay.interpreter import Line
-from relay.settings import Settings
+from earfish.interpreter import Line
+from earfish.settings import Settings
 
 START_WIDTH = 960
 SCREEN_SHARE = 0.9

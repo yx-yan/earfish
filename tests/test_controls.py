@@ -1,4 +1,4 @@
-from relay.controls import Controls
+from earfish.controls import Controls
 
 NAMES = ["Computer Audio", "Microphone"]
 

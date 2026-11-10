@@ -8,8 +8,8 @@ from enum import Enum
 from pathlib import Path
 from queue import Empty, Queue
 
-from relay.audio import Source
-from relay.transcript import FOLDER, Transcript
+from earfish.audio import Source
+from earfish.transcript import FOLDER, Transcript
 
 MAX_CAPTION_LINES = 3
 CAPTION_SECONDS = 8

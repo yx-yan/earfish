@@ -104,7 +104,7 @@ class SetupWindow:
             NSBackingStoreBuffered,
             False,
         )
-        self.window.setTitle_("Relay Setup")
+        self.window.setTitle_("Earfish Setup")
         self.window.setReleasedWhenClosed_(False)
         content = self.window.contentView()
 
@@ -112,7 +112,7 @@ class SetupWindow:
         icon.setImage_(NSApplication.sharedApplication().applicationIconImage())
         content.addSubview_(icon)
         content.addSubview_(label(
-            "Set up Relay", NSMakeRect(MARGIN + 66, height - 46, 320, 26), NSFont.boldSystemFontOfSize_(20)
+            "Set up Earfish", NSMakeRect(MARGIN + 66, height - 46, 320, 26), NSFont.boldSystemFontOfSize_(20)
         ))
         self.summary = label(
             "", NSMakeRect(MARGIN + 66, height - 68, 340, 18), NSFont.systemFontOfSize_(13),

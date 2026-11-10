@@ -1,4 +1,4 @@
-// Runs relay inside this binary. macOS grants Microphone access to the
+// Runs earfish inside this binary. macOS grants Microphone access to the
 // binary that makes the call, so a script that starts Python would ask as Python.
 
 #include <Python.h>
@@ -7,12 +7,12 @@
 #include <unistd.h>
 
 #ifndef MODULE
-#define MODULE L"relay.app"
+#define MODULE L"earfish.app"
 #endif
 
 static void log_to_file(void) {
     char path[1024];
-    snprintf(path, sizeof path, "%s/Library/Logs/Relay.log", getenv("HOME"));
+    snprintf(path, sizeof path, "%s/Library/Logs/Earfish.log", getenv("HOME"));
     freopen(path, "a", stdout);
     freopen(path, "a", stderr);
 }

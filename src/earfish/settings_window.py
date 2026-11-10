@@ -20,7 +20,7 @@ from AppKit import (
     NSWindowStyleMaskTitled,
 )
 
-from relay.settings import LIMITS, Settings
+from earfish.settings import LIMITS, Settings
 
 WIDTH = 420
 ROW_HEIGHT = 36

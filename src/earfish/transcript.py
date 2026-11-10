@@ -3,7 +3,7 @@
 from datetime import datetime
 from pathlib import Path
 
-FOLDER = Path.home() / "Documents" / "Relay"
+FOLDER = Path.home() / "Documents" / "Earfish"
 
 
 class Transcript:

@@ -4,7 +4,7 @@ import re
 
 import numpy as np
 
-from relay.audio import SAMPLE_RATE, loudness
+from earfish.audio import SAMPLE_RATE, loudness
 
 MODEL = "moona3k/mlx-qwen3-asr-0.6b-8bit"
 CHUNK_SECONDS = 0.5

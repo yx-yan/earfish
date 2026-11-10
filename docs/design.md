@@ -85,7 +85,7 @@ silent, so no audio is not a sign of a problem, and only the microphone warns ab
 ## Microphone
 
 Stopping a PortAudio input stream deadlocked inside CoreAudio in Quoth, so the stream stays
-open once it is used. macOS then shows its microphone indicator until Relay quits. All-zero
+open once it is used. macOS then shows its microphone indicator until Earfish quits. All-zero
 blocks are dropped because that is what macOS sends without permission, which lets the app
 warn after 3 seconds.
 
@@ -103,7 +103,7 @@ Chinese as it streams in, so the English appears about 0.7 s before the translat
 
 The Subtitle window changes the font sizes, width, background, height on screen, number of
 sentences and whether English shows. It previews a sample while nothing is being said, and
-saves to `~/Library/Application Support/Relay/settings.json`. A damaged file gives the defaults.
+saves to `~/Library/Application Support/Earfish/settings.json`. A damaged file gives the defaults.
 
 ## Controls
 
@@ -118,6 +118,6 @@ loses nothing already translated. Audio is never saved.
 
 ## App bundle
 
-`macos/launcher.c` embeds Python, so permissions belong to Relay and not to Python, and it
+`macos/launcher.c` embeds Python, so permissions belong to Earfish and not to Python, and it
 uses the checkout's `.venv`. The bundle is ad-hoc signed, so permissions follow its hash:
 Python changes keep them, but changes in `macos/` may not.

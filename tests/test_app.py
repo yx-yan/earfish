@@ -1,6 +1,6 @@
-import relay.app as app
-from relay.interpreter import Interpreter
-from relay.settings import Settings
+import earfish.app as app
+from earfish.interpreter import Interpreter
+from earfish.settings import Settings
 
 
 def make_menu_bar(monkeypatch, tmp_path):

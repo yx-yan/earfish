@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from relay.transcript import Transcript
+from earfish.transcript import Transcript
 
 STARTED = datetime(2026, 11, 7, 14, 30)
 

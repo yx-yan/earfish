@@ -1,4 +1,4 @@
-from relay.settings import Settings, load, save
+from earfish.settings import Settings, load, save
 
 
 def test_settings_survive_a_restart(tmp_path):

@@ -17,10 +17,10 @@ from pathlib import Path
 import numpy as np
 from dotenv import load_dotenv
 
-import relay.asr as asr
-from relay.audio import BLOCK, SAMPLE_RATE
-from relay.interpreter import Interpreter, State
-from relay.translate import Translator
+import earfish.asr as asr
+from earfish.audio import BLOCK, SAMPLE_RATE
+from earfish.interpreter import Interpreter, State
+from earfish.translate import Translator
 
 SENTENCES = """
 Thanks everyone for joining the call this morning.
