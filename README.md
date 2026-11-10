@@ -5,7 +5,7 @@
 <h1 align="center">Earfish</h1>
 
 <p align="center">
-  <strong>Hear English. Read Chinese.</strong><br>
+  <strong>A fish in your ear for English meetings.</strong><br>
   Live Chinese subtitles for any English on your Mac, and a transcript of the whole meeting.
 </p>
 
@@ -40,13 +40,13 @@ flowchart LR
 
 ## Performance
 
-Measured on an M5 with 16 GB, using read-aloud clips from one speaker.
+Measured on an M5 with 16 GB. Delays use synthesized speech, so the end of each sentence is known exactly. Recognition load and memory use 3 minutes of read-aloud clips from one speaker.
 
 | After a sentence ends | English shown | Full Chinese | Recognition load | GPU memory |
 |---|---|---|---|---|
 | Median, 202 to 335 words a minute | 1.0 to 1.4 s | 1.8 to 2.4 s | 24% of real time | 1.13 GB |
 
-Delays come from synthesized speech, so real use runs a little slower. The sample is small. See [docs/design.md](docs/design.md) for the details.
+Real speech runs a little slower than synthesized speech, and both samples are small. See [docs/design.md](docs/design.md) for the details.
 
 ## Quick start
 
