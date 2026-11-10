@@ -105,9 +105,8 @@ class Controls:
         self.panel.setFrameTopLeftPoint_((x, y))
         self.panel.orderFrontRegardless()
 
-    def update(self, status: str, toggle: str, enabled: bool) -> None:
+    def update(self, status: str, toggle: str) -> None:
         if self.status.stringValue() != status:
             self.status.setStringValue_(status)
         if self.toggle.title() != toggle:
             self.toggle.setTitle_(toggle)
-        self.toggle.setEnabled_(enabled)

@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 
 from earfish.asr import load_recognizer
 from earfish.audio import BLOCK, SAMPLE_RATE
-from earfish.interpreter import Interpreter, State
+from earfish.interpreter import Interpreter
 from earfish.translate import Translator
 
 
@@ -41,8 +41,6 @@ def main() -> None:
     interpreter = Interpreter(load_recognizer, Translator(), args.transcripts)
     threading.Thread(target=interpreter.recognize, daemon=True).start()
     threading.Thread(target=interpreter.translate, daemon=True).start()
-    while interpreter.state is State.LOADING:
-        time.sleep(0.1)
     interpreter.start(WavFile(args.wav))
     interpreter.stop()
     while not (interpreter.audio.empty() and interpreter.sentences.empty()):

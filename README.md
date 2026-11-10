@@ -54,7 +54,7 @@ Real speech runs a little slower than synthesized speech, and both samples are s
 
 ## Quick start
 
-You need an Apple Silicon Mac on macOS 14.2 or later, Python 3.12, the Xcode Command Line Tools and a DeepSeek API key. Earfish holds about 1 GB of memory from launch until you quit it, mostly the speech model, and a little more while it recognizes speech. On an 8 GB Mac that is a real share next to a browser and a meeting app, so quit it when you are not using it.
+You need an Apple Silicon Mac on macOS 14.2 or later, Python 3.12, the Xcode Command Line Tools and a DeepSeek API key. While it listens, Earfish holds about 1.1 GB of memory, mostly the speech model. It loads the model when you press Start and gives it back when you press Stop, so between sessions it holds under 0.2 GB.
 
 ```bash
 python3.12 -m venv .venv
@@ -66,7 +66,7 @@ open /Applications/Earfish.app
 
 This builds a small native launcher and installs `Earfish.app`, which you can then open from Spotlight. To start it at login, add it under System Settings > General > Login Items. If the checkout is in Documents, allow that access when asked. A setup window shows what is left to turn on.
 
-The first launch downloads the speech model. When the small Earfish window says Ready, choose Computer Audio or Microphone and press Start. Press Subtitle to change how the subtitles look. macOS asks for access the first time you use each source. Errors go to `~/Library/Logs/Earfish.log`.
+Choose Computer Audio or Microphone in the small Earfish window and press Start. The first Start downloads the speech model; after that it loads in about a second, and what it hears meanwhile is still translated. Press Subtitle to change how the subtitles look. macOS asks for access the first time you use each source. Errors go to `~/Library/Logs/Earfish.log`.
 
 ## Good to know
 
