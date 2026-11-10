@@ -1,36 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 280" role="img" aria-label="You hear: This endpoint has become really slow, so please find the bottleneck. You read the same sentence as a Chinese subtitle.">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#14575A"/>
-      <stop offset="1" stop-color="#0A2A2E"/>
+      <stop offset="0" stop-color="#22345C"/>
+      <stop offset="1" stop-color="#14213D"/>
     </linearGradient>
   </defs>
   <rect width="880" height="280" rx="24" fill="url(#bg)"/>
   <g font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Segoe UI', Helvetica, Arial, sans-serif">
-    <text x="48" y="62" font-size="14" font-weight="600" letter-spacing="1.5" fill="#9CC2C0">YOU HEAR</text>
-    <g font-size="24" fill="#9CC2C0">
+    <text x="48" y="62" font-size="14" font-weight="600" letter-spacing="1.5" fill="#8E9AB8">YOU HEAR</text>
+    <g font-size="24" fill="#8E9AB8">
       <text x="48" y="112">This endpoint has become</text>
       <text x="48" y="150">really slow, so please find</text>
       <text x="48" y="188">the bottleneck.</text>
     </g>
 
     <g transform="translate(396 120)">
-      <rect width="92" height="40" rx="20" fill="#0A2A2E" stroke="#2F6B6C"/>
+      <rect width="92" height="40" rx="20" fill="#14213D" stroke="#33466E"/>
       <g fill="#F4F1EA">
         <rect x="25.5" y="13" width="5" height="10" rx="2.5"/>
         <rect x="35.5" y="9" width="5" height="18" rx="2.5"/>
         <rect x="45.5" y="7" width="5" height="22" rx="2.5"/>
         <rect x="55.5" y="10" width="5" height="16" rx="2.5"/>
       </g>
-      <rect x="25" y="30" width="36" height="4" rx="2" fill="#FFB020"/>
+      <rect x="25" y="30" width="36" height="4" rx="2" fill="#4FD1C5"/>
     </g>
 
-    <text x="536" y="62" font-size="14" font-weight="600" letter-spacing="1.5" fill="#FFB020">YOU READ</text>
+    <text x="536" y="62" font-size="14" font-weight="600" letter-spacing="1.5" fill="#4FD1C5">YOU READ</text>
     <g font-size="24" font-weight="500" fill="#F4F1EA">
       <text x="536" y="112">这个端点已经变得非常慢了。</text>
       <text x="536" y="150">所以请找出瓶颈。</text>
     </g>
 
-    <text x="48" y="240" font-size="15" fill="#9CC2C0">Live subtitles on your screen, and a transcript of the whole meeting.</text>
+    <text x="48" y="240" font-size="15" fill="#8E9AB8">Live subtitles on your screen, and a transcript of the whole meeting.</text>
   </g>
 </svg>
