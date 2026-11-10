@@ -54,7 +54,7 @@ Real speech runs a little slower than synthesized speech, and both samples are s
 
 ## Quick start
 
-You need an Apple Silicon Mac on macOS 14.2 or later, Python 3.12, the Xcode Command Line Tools and a DeepSeek API key.
+You need an Apple Silicon Mac on macOS 14.2 or later, Python 3.12, the Xcode Command Line Tools and a DeepSeek API key. Earfish holds about 1 GB of memory from launch until you quit it, mostly the speech model, and a little more while it recognizes speech. On an 8 GB Mac that is a real share next to a browser and a meeting app, so quit it when you are not using it.
 
 ```bash
 python3.12 -m venv .venv
