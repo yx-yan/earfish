@@ -4,7 +4,7 @@ import json
 from dataclasses import asdict, dataclass, fields
 from pathlib import Path
 
-PATH = Path.home() / "Library" / "Application Support" / "Relay" / "settings.json"
+PATH = Path.home() / "Library" / "Application Support" / "Earfish" / "settings.json"
 
 LIMITS = {
     "chinese_size": (16, 60),

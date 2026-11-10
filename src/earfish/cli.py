@@ -9,10 +9,10 @@ from pathlib import Path
 import numpy as np
 from dotenv import load_dotenv
 
-from relay.asr import load_recognizer
-from relay.audio import BLOCK, SAMPLE_RATE
-from relay.interpreter import Interpreter, State
-from relay.translate import Translator
+from earfish.asr import load_recognizer
+from earfish.audio import BLOCK, SAMPLE_RATE
+from earfish.interpreter import Interpreter, State
+from earfish.translate import Translator
 
 
 class WavFile:

@@ -1,4 +1,4 @@
-from relay.onboarding import Check, has_key, incomplete
+from earfish.onboarding import Check, has_key, incomplete
 
 
 def test_incomplete_until_every_check_is_done():

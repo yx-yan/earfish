@@ -1,6 +1,6 @@
-from relay.interpreter import Line
-from relay.overlay import Overlay, subtitle_rows
-from relay.settings import Settings
+from earfish.interpreter import Line
+from earfish.overlay import Overlay, subtitle_rows
+from earfish.settings import Settings
 
 
 def test_english_goes_above_the_chinese():

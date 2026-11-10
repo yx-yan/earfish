@@ -1,5 +1,5 @@
-from relay.settings import Settings
-from relay.settings_window import ROWS, SettingsWindow
+from earfish.settings import Settings
+from earfish.settings_window import ROWS, SettingsWindow
 
 
 def test_a_slider_changes_the_setting():

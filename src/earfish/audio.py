@@ -11,7 +11,7 @@ import sounddevice as sd
 SAMPLE_RATE = 16_000
 BLOCK = SAMPLE_RATE // 10
 QUIET_DB, LOUD_DB = -55, -25  # Room noise to loud speech.
-HELPER = "/Applications/Relay.app/Contents/MacOS/audiotap"
+HELPER = "/Applications/Earfish.app/Contents/MacOS/audiotap"
 
 
 class Source(Protocol):

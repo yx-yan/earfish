@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleExecutable</key>
-    <string>Relay</string>
+    <string>Earfish</string>
     <key>CFBundleIconFile</key>
     <string>AppIcon</string>
     <key>CFBundleIdentifier</key>
-    <string>com.yuxuanyan.relay</string>
+    <string>com.yuxuanyan.earfish</string>
     <key>CFBundleName</key>
-    <string>Relay</string>
+    <string>Earfish</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
@@ -17,10 +17,10 @@
     <key>LSUIElement</key>
     <true/>
     <key>NSAudioCaptureUsageDescription</key>
-    <string>Relay translates the English your Mac is playing.</string>
+    <string>Earfish translates the English your Mac is playing.</string>
     <key>NSDocumentsFolderUsageDescription</key>
-    <string>Relay runs from its project folder and saves transcripts in Documents.</string>
+    <string>Earfish runs from its project folder and saves transcripts in Documents.</string>
     <key>NSMicrophoneUsageDescription</key>
-    <string>Relay translates the English the microphone hears.</string>
+    <string>Earfish translates the English the microphone hears.</string>
 </dict>
 </plist>

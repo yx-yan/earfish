@@ -2,9 +2,9 @@ from datetime import datetime
 
 import numpy as np
 
-from relay.interpreter import CAPTION_SECONDS, Caption, Interpreter, Line, Sentence, State, merge
-from relay.transcript import Transcript
-from relay.translate import Translation
+from earfish.interpreter import CAPTION_SECONDS, Caption, Interpreter, Line, Sentence, State, merge
+from earfish.transcript import Transcript
+from earfish.translate import Translation
 
 NOW = datetime(2026, 11, 7, 14, 30)
 

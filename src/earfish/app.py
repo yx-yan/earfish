@@ -11,16 +11,16 @@ import rumps
 from AppKit import NSApplication, NSApplicationActivationPolicyAccessory
 from dotenv import load_dotenv
 
-from relay.asr import load_recognizer
-from relay.audio import ComputerAudio, Microphone
-from relay.controls import Controls
-from relay.interpreter import Interpreter, Line, State
-from relay.onboarding import SetupWindow, incomplete
-from relay.overlay import Overlay
-from relay.settings import load, save
-from relay.settings_window import SettingsWindow
-from relay.transcript import FOLDER
-from relay.translate import Translator
+from earfish.asr import load_recognizer
+from earfish.audio import ComputerAudio, Microphone
+from earfish.controls import Controls
+from earfish.interpreter import Interpreter, Line, State
+from earfish.onboarding import SetupWindow, incomplete
+from earfish.overlay import Overlay
+from earfish.settings import load, save
+from earfish.settings_window import SettingsWindow
+from earfish.transcript import FOLDER
+from earfish.translate import Translator
 
 ICON_DIR = Path(__file__).parent / "icons"
 ICONS = {state: str(ICON_DIR / f"{state.name.lower()}.png") for state in State}
@@ -30,7 +30,7 @@ SAMPLE = Line("This is how your subtitles will look.", "字幕会显示成这样
 
 class MenuBar(rumps.App):
     def __init__(self, interpreter: Interpreter, start_now: bool):
-        super().__init__("Relay", icon=ICONS[State.LOADING], template=True, quit_button=None)
+        super().__init__("Earfish", icon=ICONS[State.LOADING], template=True, quit_button=None)
         self.interpreter = interpreter
         self.start_now = start_now
         self.overlay = Overlay()
@@ -56,7 +56,7 @@ class MenuBar(rumps.App):
             rumps.MenuItem("Subtitle Settings...", callback=lambda _: self.settings_window.show()),
             rumps.MenuItem("Open Transcripts", callback=lambda _: open_transcripts()),
             rumps.MenuItem("Setup...", callback=lambda _: self.setup.show()),
-            rumps.MenuItem("Quit Relay", callback=lambda _: self.quit()),
+            rumps.MenuItem("Quit Earfish", callback=lambda _: self.quit()),
         ]
         self.controls = Controls(
             list(self.sources),
@@ -141,7 +141,7 @@ def main() -> None:
     threading.Thread(target=interpreter.recognize, daemon=True).start()
     threading.Thread(target=interpreter.translate, daemon=True).start()
     NSApplication.sharedApplication().setActivationPolicy_(NSApplicationActivationPolicyAccessory)
-    MenuBar(interpreter, start_now="RELAY_START" in os.environ).run()
+    MenuBar(interpreter, start_now="EARFISH_START" in os.environ).run()
 
 
 if __name__ == "__main__":

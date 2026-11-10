@@ -31,7 +31,7 @@ func read<T>(_ object: AudioObjectID, _ selector: AudioObjectPropertySelector, a
 }
 
 let description = CATapDescription(stereoGlobalTapButExcludeProcesses: [])
-description.name = "Relay"
+description.name = "Earfish"
 description.isPrivate = true
 description.muteBehavior = .unmuted
 
@@ -45,7 +45,7 @@ let output = read(
 let outputUID = read(output, kAudioDevicePropertyDeviceUID, as: "" as CFString) as String
 
 let aggregate: [String: Any] = [
-    kAudioAggregateDeviceNameKey: "Relay Tap",
+    kAudioAggregateDeviceNameKey: "Earfish Tap",
     kAudioAggregateDeviceUIDKey: UUID().uuidString,
     kAudioAggregateDeviceMainSubDeviceKey: outputUID,
     kAudioAggregateDeviceIsPrivateKey: true,
@@ -95,12 +95,12 @@ check(
         if bytes > 0, let samples = converted.int16ChannelData?[0],
             write(STDOUT_FILENO, samples, bytes) < 0
         {
-            exit(0)  // Relay stopped reading.
+            exit(0)  // Earfish stopped reading.
         }
     }, "creating the audio callback")
 check(AudioDeviceStart(device, procID), "starting capture")
 
-// A silent Mac makes no callbacks, so a failed write alone would not notice Relay is gone.
+// A silent Mac makes no callbacks, so a failed write alone would not notice Earfish is gone.
 let parent = getppid()
 let watchdog = DispatchSource.makeTimerSource(queue: queue)
 watchdog.schedule(deadline: .now() + 1, repeating: 1)

@@ -63,7 +63,7 @@ class Controls:
             NSBackingStoreBuffered,
             False,
         )
-        self.panel.setTitle_("Relay")
+        self.panel.setTitle_("Earfish")
         self.panel.setLevel_(NSFloatingWindowLevel)
         self.panel.setHidesOnDeactivate_(False)
         self.panel.setMovableByWindowBackground_(True)

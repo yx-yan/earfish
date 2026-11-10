@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="assets/logo.svg" width="128" alt="Relay logo: a voice waveform above two subtitle lines">
+  <img src="assets/logo.svg" width="128" alt="Earfish logo: a voice waveform above two subtitle lines">
 </p>
 
-<h1 align="center">Relay</h1>
+<h1 align="center">Earfish</h1>
 
 <p align="center">
   <strong>Hear English. Read Chinese.</strong><br>
@@ -29,11 +29,11 @@ flowchart LR
     end
     B -- "text only" --> C["DeepSeek<br>translates"]
     C --> D["Subtitle on<br>your screen"]
-    C --> E["Transcript in<br>~/Documents/Relay"]
+    C --> E["Transcript in<br>~/Documents/Earfish"]
 ```
 
 - **Works with anything you can hear.** Videos, online meetings, or a talk in the room.
-- **Audio stays on your Mac.** Speech recognition runs locally and audio is never saved. The recognized English goes to DeepSeek, so do not use Relay for meetings that must stay private.
+- **Audio stays on your Mac.** Speech recognition runs locally and audio is never saved. The recognized English goes to DeepSeek, so do not use Earfish for meetings that must stay private.
 - **Nothing is lost.** If translation fails or takes over 5 seconds, you get the English.
 - **Subtitles your way.** English above Chinese or Chinese alone, with separate font sizes, width, background, height on screen and how many sentences to show.
 - **The meeting is written down.** Each session is a Markdown file with the time, the English and the Chinese for every sentence, saved as it happens.
@@ -57,24 +57,24 @@ python3.12 -m venv .venv
 .venv/bin/pip install -e ".[dev]"
 cp .env.example .env   # then add your DeepSeek key
 macos/build.sh
-open /Applications/Relay.app
+open /Applications/Earfish.app
 ```
 
-This builds a small native launcher and installs `Relay.app`, which you can then open from Spotlight. To start it at login, add it under System Settings > General > Login Items. If the checkout is in Documents, allow that access when asked. A setup window shows what is left to turn on.
+This builds a small native launcher and installs `Earfish.app`, which you can then open from Spotlight. To start it at login, add it under System Settings > General > Login Items. If the checkout is in Documents, allow that access when asked. A setup window shows what is left to turn on.
 
-The first launch downloads the speech model. When the small Relay window says Ready, choose Computer Audio or Microphone and press Start. Press Subtitle to change how the subtitles look. macOS asks for access the first time you use each source. Errors go to `~/Library/Logs/Relay.log`.
+The first launch downloads the speech model. When the small Earfish window says Ready, choose Computer Audio or Microphone and press Start. Press Subtitle to change how the subtitles look. macOS asks for access the first time you use each source. Errors go to `~/Library/Logs/Earfish.log`.
 
 ## Good to know
 
 - The app runs Python from this checkout, so code changes only need a restart. Moving the checkout or changing anything in `macos/` may mean granting the permissions again.
 - The same controls are in the menu bar, but a crowded bar can hide them behind the notch.
-- After you use the microphone, macOS shows its recording indicator until Relay quits.
+- After you use the microphone, macOS shows its recording indicator until Earfish quits.
 - Computer Audio only works from the app, because macOS ties that access to it.
 
 ## Translate a recording
 
 ```bash
-.venv/bin/relay clip.wav
+.venv/bin/earfish clip.wav
 ```
 
 This plays the file through the whole pipeline in real time and writes the transcript to `transcripts/`. Input must be 16 kHz mono WAV.

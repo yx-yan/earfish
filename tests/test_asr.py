@@ -2,7 +2,7 @@ from types import SimpleNamespace
 
 import numpy as np
 
-from relay.asr import MAX_WORDS, Recognizer, Segmenter
+from earfish.asr import MAX_WORDS, Recognizer, Segmenter
 
 LOUD = np.full(1600, 8000, dtype=np.int16)
 QUIET = np.zeros(1600, dtype=np.int16)

@@ -2,7 +2,7 @@ from types import SimpleNamespace
 
 from openai import OpenAIError
 
-from relay.translate import Translator
+from earfish.translate import Translator
 
 
 def chunk(text):
